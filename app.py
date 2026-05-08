@@ -87,7 +87,7 @@ with st.container():
 if generer_btn:
     if nom_mere:
         # --- LOGIQUE DE GÉNÉRATION PDF ---
-        # Remarque : Utilisez ici le nom exact de votre dernier fichier PDF uploader sur GitHub
+        # Remarque : Assurez-vous que le nom du fichier PDF sur GitHub est bien "modele.pdf"
         CHEMIN_PDF = "modele.pdf" 
         CHEMIN_POLICE = "GreatVibes-Regular.ttf"
 
@@ -103,14 +103,11 @@ if generer_btn:
             can.setFillColorRGB(0.1, 0.05, 0.1) # Presque noir
             
             # --- AJUSTEMENT DE L'ESPACE ---
-            # On écarte légèrement les lettres pour plus de clarté
-            can.setCharSpace(1.5) 
+            # On sépare le prénom et le nom pour insérer 3 espaces au milieu
+            mots = nom_mere.split()
+            nom_aere = "   ".join(mots)
             
-            # On ajoute un triple espace entre le prénom et le nom pour aérer
-            # split() enlève les espaces inutiles, "   ".join() remet 3 espaces au milieu
-            nom_aere = "   ".join(nom_mere.split())
-            
-            # Positionnement (421 = centre, 285 = légèrement remonté pour l'emblème)
+            # Positionnement (421 = centre, 285 = hauteur ajustée pour votre nouveau modèle)
             can.drawCentredString(421, 285, nom_aere)
             
             can.save()
